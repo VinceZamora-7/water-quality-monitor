@@ -1,20 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {
+  useState,
+} from 'react';
+
+import {
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
+
+import DashboardScreen
+  from './src/screens/DashboardScreen';
+
+import SettingsScreen
+  from './src/screens/SettingsScreen';
+
+type AppScreen =
+  | 'dashboard'
+  | 'settings';
 
 export default function App() {
+  const [
+    currentScreen,
+    setCurrentScreen,
+  ] =
+    useState<AppScreen>(
+      'dashboard'
+    );
+
+  if (
+    currentScreen ===
+    'settings'
+  ) {
+    return (
+      <SafeAreaProvider>
+        <SettingsScreen
+          onBack={() =>
+            setCurrentScreen(
+              'dashboard'
+            )
+          }
+        />
+      </SafeAreaProvider>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <DashboardScreen
+        onOpenSettings={() =>
+          setCurrentScreen(
+            'settings'
+          )
+        }
+      />
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

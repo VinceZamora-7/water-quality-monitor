@@ -1,25 +1,26 @@
 {
   "expo": {
-    "name": "water-quality-monitor",
-    "slug": "water-quality-monitor",
+    "name": "AquaControl",
+    "slug": "aquacontrol",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "ios": {
-      "supportsTablet": true
-    },
+    "userInterfaceStyle": "dark",
+    "icon": "./assets/logo-aquaaudit.png",
     "android": {
+      "package": "com.aquacontrol.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false
+        "foregroundImage": "./assets/logo-aquaaudit.png",
+        "backgroundColor": "#0A101D"
+      }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "ios": {
+      "bundleIdentifier": "com.aquacontrol.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "992ab511-5aed-4369-bbda-a41c2f38f765"
+      }
+    },
+    "owner": "binsqtie"
   }
 }
